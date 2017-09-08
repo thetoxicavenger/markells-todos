@@ -9,13 +9,13 @@ class Stats extends React.Component {
         players: []
     }
     componentDidMount () {
-        fetch('http://localhost:8080/players')
+        fetch(`http://localhost:8080`)
             .then((res) => {
                 return res.json()
             })
             .then((json) => {
                 this.setState({
-                    players: json
+                    players: json.players
                 })
             })
     }

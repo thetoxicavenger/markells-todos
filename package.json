@@ -6,6 +6,8 @@
   "author": "Mitch Cravens <mcravens@digitalairstrike.com>",
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^5.0.5",
+    "dotenv": "^4.0.0",
     "es6-promise": "^4.1.1",
     "global": "^4.3.2",
     "isomorphic-fetch": "^2.2.1",
@@ -19,10 +21,8 @@
     "react-fontawesome": "^1.6.1"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "next-start": "next start",
-    "start": "npm-run-all -p next-start mock-server",
-    "mock-server": "json-server --watch test/db.json --port 8080"
+    "dev": "cross-env API=http://localhost:8080 next",
+    "build": "cross-env API=http://myapisite.com next build",
+    "next-start": "cross-env API=http://myapisite.com next start"
   }
 }
